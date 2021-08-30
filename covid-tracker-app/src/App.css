@@ -1,0 +1,96 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+@media (prefers-reduced-motion: no-preference) {
+  .App-logo {
+    animation: App-logo-spin infinite 20s linear;
+  }
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-link {
+  color: #61dafb;
+}
+
+@keyframes App-logo-spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/*row*/
+.row {
+  padding-left: 20px;
+}
+
+/* Create three equal columns that floats next to each other */
+.column-heatmap {
+  display: flex;
+  float: left;
+  height: 80vh;
+  width: 65%;
+  min-height: 400px;
+  min-width: 700px;
+  border:5px solid rgb(107, 108, 124);
+}
+
+.column-statistics {
+  float: left;
+  min-height: 80vh;
+  width: 33.33%;
+  padding: 10px;
+  border:5px solid rgb(107, 108, 124);
+}
+
+/* Clear floats after the columns */
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+#heatmap {
+  height: 100%;
+  width: 100%;
+}
+
+.selector {
+  float: left;
+  width: 200px;
+  height: 40px;
+}
+
+.dropdown-selector {
+  float: left;
+  width: 400px;
+  height: 40px;
+}
+
+.button {
+  height: 100%;
+  width: 100%;
+  border-radius: 12px;
+  display:block;
+}
