@@ -102,7 +102,7 @@ class Heatmap extends React.Component {
                     Deaths_Probable += data.deathsprobable
                 })
 
-                globalVar.update_stats({title: "U.S Covid Cases", "Total Cases": "Total Cases".toLocaleString(), "Cases Probable": Cases_Probable.toLocaleString(), 
+                globalVar.update_stats({title: "U.S Covid Cases", "Total Cases": Total_Cases.toLocaleString(), "Cases Probable": Cases_Probable.toLocaleString(), 
                 "Total Deaths": Total_Deaths.toLocaleString(), "Deaths Probable": Deaths_Probable.toLocaleString()})
 
                 var data = {
