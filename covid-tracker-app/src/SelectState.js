@@ -66,8 +66,8 @@ class SelectState extends Component {
     getVacs(abrv){
         axios.get(`http://localhost:8000/api/states/?abrv=${abrv}`).then(state => {
             axios.get(`http://localhost:8000/api/vacdata/?statename=${state.data[0].statename}`).then(vacs => {
-                data = vacs.data[0]
-                globalVar.update_stats({title: state.data[0].statename, "First Doses Delivered": data.firstdose.toLocaleString(), "Second Doses Delivered": data.seconddose.toLocaleString(), "Total Doses Delivered": data.totaldose.toLocaleString()})
+                var Vacdata = vacs.data[0]
+                globalVar.update_stats({title: state.data[0].statename, "First Doses Delivered": Vacdata.firstdose.toLocaleString(), "Second Doses Delivered": Vacdata.seconddose.toLocaleString(), "Total Doses Delivered": Vacdata.totaldose.toLocaleString()})
 
                 var data = {
                     positions: [

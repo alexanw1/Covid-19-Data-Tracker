@@ -84,9 +84,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
         'NAME': 'covidtracker',
-        'USER': 'admin',
+        'USER': 'root',
         'PASSWORD': 'adminpass',
-        'HOST': 'alexanw1covidtracker.c2of7y1uqdhw.us-east-1.rds.amazonaws.com',
+        'HOST': 'localhost',
         'PORT': '3306',
     }
 }

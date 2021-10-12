@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
@@ -9,6 +9,7 @@ import VaccineState from './VaccineState';
 import CloseState from './CloseState';
 import SelectState from './SelectState';
 import Statistics from './Statistics';
+
 
 ReactDOM.render(
   <React.StrictMode>
