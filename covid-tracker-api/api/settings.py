@@ -83,10 +83,10 @@ WSGI_APPLICATION = 'api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'covidtracker',
-        'USER': 'root',
-        'PASSWORD': 'adminpass',
-        'HOST': 'localhost',
+        'NAME': 'covid',
+        'USER': 'caton',
+        'PASSWORD': 'password',
+        'HOST': '72.81.135.115',
         'PORT': '3306',
     }
 }
