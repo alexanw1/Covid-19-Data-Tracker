@@ -12,7 +12,7 @@ node_modules/
 /coverage
 
 # production
-/build
+/covid-tracker-app/build
 
 # misc
 .DS_Store
