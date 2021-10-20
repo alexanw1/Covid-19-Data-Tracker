@@ -26,7 +26,7 @@ SECRET_KEY = 'django-insecure-e10qkuw^#_jppj&b-=z4pvd%kk8rt6)mwu*t$t7nxlt@wznva&
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost']
+ALLOWED_HOSTS = ['*']
 
 
 # Application definition
@@ -83,7 +83,7 @@ WSGI_APPLICATION = 'api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'covid',
+        'NAME': 'covidtracker',
         'USER': 'caton',
         'PASSWORD': 'password',
         'HOST': '72.81.135.115',
