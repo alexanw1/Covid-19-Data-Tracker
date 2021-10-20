@@ -16,12 +16,12 @@ class SelectCounty extends Component {
 
     getCases(name) {
         globalVar.update_stats({})
-        axios.get(`http://localhost:8000/api/casedata/?stateabvr=${this.props.state}&countyname=${name}`).then(countycases => {
+        axios.get(`https://covidtrackermysql.herokuapp.com/api/casedata/?stateabvr=${this.props.state}&countyname=${name}`).then(countycases => {
             var caseData = countycases.data[0]
             globalVar.update_stats({title: caseData.countyname.toLocaleString(), "Total Cases": caseData.casesconfirmed.toLocaleString(), "Cases Probable": caseData.casesprobable.toLocaleString(), "Total Deaths": caseData.deathsconfirmed.toLocaleString(), "Deaths Probable": caseData.deathsprobable.toLocaleString()})
         })
 
-        axios.get(`http://localhost:8000/api/counties/?countyname=${name}&state=${this.props.state}`).then(response => {
+        axios.get(`https://covidtrackermysql.herokuapp.com/api/counties/?countyname=${name}&state=${this.props.state}`).then(response => {
             globalVar.move_center({data: response.data, zoom: 12})
         })
 

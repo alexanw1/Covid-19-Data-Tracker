@@ -15,8 +15,8 @@ class VaccineState extends Component {
   handleClick () {
     globalVar.app_state = "vaccine"
     globalVar.clear_state()
-    axios.get(`http://localhost:8000/api/vacdata`).then(vacs => {
-            axios.get('http://localhost:8000/api/states/').then(states => {
+    axios.get(`https://covidtrackermysql.herokuapp.com/api/vacdata`).then(vacs => {
+            axios.get('https://covidtrackermysql.herokuapp.com/api/states/').then(states => {
                 var output = []
                 var country_data = []
                 states.data.forEach((state) => {

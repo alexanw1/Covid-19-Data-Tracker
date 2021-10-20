@@ -68,8 +68,8 @@ class Heatmap extends React.Component {
             this.setState({center: data.center, zoom: data.zoom})
         }
 
-        axios.get(`http://localhost:8000/api/casedata/?iscounty=0`).then(cases => {
-            axios.get('http://localhost:8000/api/states/').then(states => {
+        axios.get(`https://covidtrackermysql.herokuapp.com/api/casedata/?iscounty=0`).then(cases => {
+            axios.get('https://covidtrackermysql.herokuapp.com/api/states/').then(states => {
                 var output = []
                 var country_data = []
                 states.data.forEach((state) => {

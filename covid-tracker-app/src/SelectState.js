@@ -20,7 +20,7 @@ class SelectState extends Component {
     }
 
     async getOptions(){
-        const res = await axios.get('http://localhost:8000/api/states/')
+        const res = await axios.get('https://covidtrackermysql.herokuapp.com/api/states/')
         const data = res.data
     
         const options = data.map(d => ({
@@ -36,13 +36,13 @@ class SelectState extends Component {
 
     getCases(abrv){
         globalVar.update_stats({})
-        axios.get(`http://localhost:8000/api/casedata/?iscounty=0&stateabvr=${abrv}`).then(statecases => {
+        axios.get(`https://covidtrackermysql.herokuapp.com/api/casedata/?iscounty=0&stateabvr=${abrv}`).then(statecases => {
             var caseData = statecases.data[0]
             globalVar.update_stats({title: caseData.countyname, "Total Cases": caseData.casesconfirmed.toLocaleString(), "Cases Probable": caseData.casesprobable.toLocaleString(), "Total Deaths": caseData.deathsconfirmed.toLocaleString(), "Deaths Probable": caseData.deathsprobable.toLocaleString()})
         })
 
-        axios.get(`http://localhost:8000/api/casedata/?iscounty=1&stateabvr=${abrv}`).then(cases => {
-            axios.get(`http://localhost:8000/api/counties/?state=${abrv}`).then(counties => {
+        axios.get(`https://covidtrackermysql.herokuapp.com/api/casedata/?iscounty=1&stateabvr=${abrv}`).then(cases => {
+            axios.get(`https://covidtrackermysql.herokuapp.com/api/counties/?state=${abrv}`).then(counties => {
                 var output = []
                 counties.data.forEach((county) => {
                     cases.data.forEach((caseData) => {
@@ -64,8 +64,8 @@ class SelectState extends Component {
     }
 
     getVacs(abrv){
-        axios.get(`http://localhost:8000/api/states/?abrv=${abrv}`).then(state => {
-            axios.get(`http://localhost:8000/api/vacdata/?statename=${state.data[0].statename}`).then(vacs => {
+        axios.get(`https://covidtrackermysql.herokuapp.com/api/states/?abrv=${abrv}`).then(state => {
+            axios.get(`https://covidtrackermysql.herokuapp.com/api/vacdata/?statename=${state.data[0].statename}`).then(vacs => {
                 var Vacdata = vacs.data[0]
                 globalVar.update_stats({title: state.data[0].statename, "First Doses Delivered": Vacdata.firstdose.toLocaleString(), "Second Doses Delivered": Vacdata.seconddose.toLocaleString(), "Total Doses Delivered": Vacdata.totaldose.toLocaleString()})
 
@@ -84,8 +84,8 @@ class SelectState extends Component {
     }
 
     getClosures(abrv){
-        axios.get(`http://localhost:8000/api/states/?abrv=${abrv}`).then(state => {
-            axios.get(`http://localhost:8000/api/closuredata/?statename=${state.data[0].statename}`).then(closures => {
+        axios.get(`https://covidtrackermysql.herokuapp.com/api/states/?abrv=${abrv}`).then(state => {
+            axios.get(`https://covidtrackermysql.herokuapp.com/api/closuredata/?statename=${state.data[0].statename}`).then(closures => {
                 var data = closures.data[0]
                 Object.keys(data).forEach((key) => {
                     if (data[key] === "-" || data[key] === "0"){
@@ -129,11 +129,11 @@ class SelectState extends Component {
     handleChange (event) {
         this.updateHeatMap(event.value)
 
-        axios.get(`http://localhost:8000/api/states/?abrv=${event.value}`).then(response => {
+        axios.get(`https://covidtrackermysql.herokuapp.com/api/states/?abrv=${event.value}`).then(response => {
             globalVar.move_center({data: response.data, zoom: 8})
         })
         if (globalVar.app_state === "case"){
-            axios.get(`http://localhost:8000/api/counties/?state=${event.value}`).then(response => {
+            axios.get(`https://covidtrackermysql.herokuapp.com/api/counties/?state=${event.value}`).then(response => {
                 this.setState({selected: event.value, counties: response.data, updated: true})
             })
         }else {
